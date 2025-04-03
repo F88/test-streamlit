@@ -3,22 +3,30 @@ name: Python application
 on: [push, pull_request]
 
 jobs:
+
+  greetings:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Greeting
+        run: echo "Hello, GitHub Actions!"
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.13.2' 
-    
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Greeting
-      run: echo "Hello, GitHub Actions!"
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13.2' 
+      
+
 
     # - name: Install dependencies
     #   run: |
